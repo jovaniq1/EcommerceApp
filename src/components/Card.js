@@ -11,14 +11,12 @@ import { Text } from './Text';
 import { money } from '../util/format';
 import colors from '../constants/colors';
 
-
 const screen = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   itemCard: {
     flex: 1,
     padding: 10,
-    flexDirection:'row'
   },
   itemImage: {
     width: screen.width * 0.4,
@@ -27,10 +25,6 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontWeight: 'bold',
     marginVertical: 5,
-  },
-  description: {
-    //flexDirection:'row'
-
   },
   sectionHeader: {
     paddingTop: 10,
@@ -44,18 +38,13 @@ const styles = StyleSheet.create({
 
 export const ItemCard = ({ name, price, onPress, image }) => (
   <TouchableOpacity style={styles.itemCard} onPress={onPress}>
-  
     <Image
       source={{ uri: image }}
       style={styles.itemImage}
       resizeMode="cover"
     />
-    <View style={styles.description}>
     <Text style={styles.cardTitle}>{name}</Text>
     <Text>{money(price)}</Text>
-
-  </View>
-    
   </TouchableOpacity>
 );
 

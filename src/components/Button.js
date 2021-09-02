@@ -5,11 +5,11 @@ import colors from '../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primary,
+    backgroundColor: 'transparent',
     paddingVertical: 14,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: colors.primary,
+    borderColor: colors.brand,
     marginVertical: 7,
   },
   containerOutline: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.white,
+    color: colors.black,
     alignSelf: 'center',
     fontSize: 18,
     fontWeight: '500',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Button = ({ onPress = () => {}, children = '', type }) => {
+export const Button = ({ onPress = () => {}, children = '', type }, {text}) => {
   const containerStyles = [styles.container];
   const textStyles = [styles.text];
 
@@ -39,7 +39,7 @@ export const Button = ({ onPress = () => {}, children = '', type }) => {
 
   return (
     <TouchableOpacity onPress={onPress} style={containerStyles}>
-      <Text style={textStyles}>{children}</Text>
+      <Text style={textStyles}>{text}</Text>
     </TouchableOpacity>
   );
 };
